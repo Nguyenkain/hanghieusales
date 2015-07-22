@@ -1,0 +1,186 @@
+/* Smartphones (portrait and landscape) ----------- */
+img
+{
+    max-width: 100%;
+}
+@media only screen and (max-width : 768px){
+    #product-page .product-shop{
+        width: 100%;
+    }
+    #product-page .product-sidebar{
+        display: none;
+    }
+}
+@media only screen and (max-width : 375px){
+    .menu-custom a{
+        font-size: 9px;
+    }
+    #product-page .product-shop .addto-container{
+        width: 100%;
+    }
+    div.product div.summary p{
+        font-size: 11px;
+    }
+    .button.dathang{
+        font-size: 14px !important;
+    }
+    .product-thumbnail.cart_del_column{
+        display: none;
+    }
+    .checkout_cart td.product-price span, .checkout_cart td.product-subtotal span, .table td.order-total span, .table td.product-total span,
+    .checkout_cart .wpsc_product_name, .checkout_cart td.product-name a, .table td.product-name a{
+        font-size: 12px !important;
+    }
+    .cart td, .cart th{
+        padding: 2px;
+    }
+    td.actions .coupon .input-text {
+        width: 35%;
+    }
+    .qty-block .minus, .qty-block .plus, .qty-block .quantity_box_button_down, .qty-block .quantity_box_button_up{
+        width: 10px;
+    }
+    table.order_details, .col3-set .col-1, .col3-set .col-2, .col3-set .col-3, .border_box {
+        width: 100%;
+    }
+}
+@media only screen and (max-width : 960px){
+    .notice11{
+        height: auto;
+        width: 100%;
+    }
+    .product-slider .product-slide {
+        width: 25%;
+    }
+}
+@media only screen and (max-width : 480px){
+    .sbzoff{ display: none !important;}
+    #tabs.product-tabs li a.active{
+        background: #777777;
+        color: white !important;
+        border-bottom:none;
+    }
+    .product-slider .product-slide {
+        width: 100%;
+    }
+    #breadcrumb, .wpsc-breadcrumbs{
+        display: none;
+    }
+    div.product div.images{
+        width: 100%;
+    }
+    #product-page .product-shop{
+        width: 100%;
+    }
+    ul#tabs>:first-child{
+        margin-left: 0px; 
+    }
+    #footer .policy-block p.policy-info a{
+        display: block;
+    }
+    #footer .policy-block p.policy-info a.myfacebook, #footer .policy-block p.policy-info a.mygoogle, #footer .policy-block p.policy-info a.mytwitter{
+        display: inline;
+    }
+    /*    .lshowcase-slide {
+            width: 100% !important;
+        }*/
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    /* Styles */
+    body{width:100%;overflow-x:hidden;}
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .product-slider,#default_products_page_container{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+    .cont-nav-footer .block-nav {width:100%;float:none;margin:0px auto;}
+    #products-sidebar{display:none;}
+    ul.products .product-grid, #products-grid.products_grid .product-grid{width:100%;max-width:100%;}
+    .product-image .img-wrapper{text-align: center;}
+    .row-fluid .span9{width:100%;}
+    .row-fluid .span2{width:100%;}
+    .row-fluid .span3{width:100%;margin-top:20px;}
+    #footer .nav-footer .cont-nav-footer .block-nav{width:100%;}
+    #product-page .product-sidebar{width:100%;}
+    #links{display:none;}
+    .slicknav_menu{display:block;}
+    #top{display:none;}
+    .logo{position: static;}
+    #search{display:none;}
+    .breadcrumb{margin:10px 0px;}
+}
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .page-template-frontpage-php .banner{
+        width: 100%;
+        margin: 0px;
+    }
+    .product-slider{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+    .cont-nav-footer .block-nav {width:100%;float:none;margin:0px auto;}
+    #products-sidebar{display:none;}
+    #products-grid.products_grid .product-grid{width:100%;float:none;}
+    ul.products .product-grid, #products-grid.products_grid .product-grid{width:100%;max-width:100%;}
+    .product-image .img-wrapper{text-align: center;}
+    .row-fluid .span9{width:100%;}
+    .row-fluid .span2{width:100%;}
+    .row-fluid .span3{width:100%;margin-top:20px;}
+    #product-page .product-sidebar{width:100%;}
+    #links{display:none;}
+    .slicknav_menu{display:block;}
+    #top{display:none;}
+    .logo{position: static;}
+    .breadcrumb{margin:10px 0px;}
+}
+@media only screen and (max-width : 768px) {
+    body{width:100%;overflow-x:hidden;}
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .product-slider{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+    #links{display:none;}
+    .slicknav_menu{display:block;}
+    #top{display:none;}
+    #search{display:none;}
+    .slicknav_menu{display:block;}
+    #top{display:none;}
+    .logo{position: static;}
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    /* Styles */
+    body{width:100%;overflow-x:hidden;}
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .product-slider{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+    body{width:100%;overflow-x:hidden;}
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .product-slider{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+    .slicknav_menu{display:none;}
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+    body{width:100%;overflow-x:hidden;}
+    .header_contain{width:100%;}
+    #header,.links ul,#main-nav > ul{width:98%;}.containerInner{width:90%;margin:0px auto;}
+    .one-half{width:46%;}
+    .product-slider{width:98%;margin: 0px auto; overflow: hidden;}
+    .bran-wrap{width:98%;}
+    .slicknav_menu{display:none;}
+}

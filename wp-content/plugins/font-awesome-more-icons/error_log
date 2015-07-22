@@ -1,0 +1,1 @@
+[15-Nov-2014 05:25:43 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/hanghxxv/public_html/wp-content/plugins/font-awesome-more-icons/plugin.php on line 39

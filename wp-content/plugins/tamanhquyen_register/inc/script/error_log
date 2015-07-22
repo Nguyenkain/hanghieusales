@@ -1,0 +1,1 @@
+[15-Nov-2014 07:14:20 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/hanghxxv/public_html/wp-content/plugins/tamanhquyen_register/inc/script/register_action.php on line 86

@@ -1,0 +1,4 @@
+[15-Nov-2014 05:25:45 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/hanghxxv/public_html/wp-content/plugins/logos-showcase/ordering-code.php on line 11
+[15-Nov-2014 05:25:46 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/hanghxxv/public_html/wp-content/plugins/logos-showcase/ordering-code.php on line 11
+[15-Nov-2014 05:25:46 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/hanghxxv/public_html/wp-content/plugins/logos-showcase/shortcode-generator.php on line 58
+[15-Nov-2014 05:25:46 UTC] PHP Fatal error:  Class 'WP_Widget' not found in /home/hanghxxv/public_html/wp-content/plugins/logos-showcase/widget-code.php on line 7
