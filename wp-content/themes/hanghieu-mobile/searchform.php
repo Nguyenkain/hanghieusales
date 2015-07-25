@@ -62,7 +62,7 @@
 						<?php }
 					} ?>
 				</ul>
-				<input id="search-cate" type="hidden" name="cat" value="0">
+				<input id="search-cate" type="hidden" name="cat" value="<?php echo isset($_GET['s']) ? $_GET['s'] : "0" ?>">
 			</div>
 			<input type="text" class="form-control search-field"  value="<?php if(isset($_GET['s'])) { echo $_GET['s']; } ?>" name="s"
 			       placeholder="Nhập từ khoá tìm kiếm">
