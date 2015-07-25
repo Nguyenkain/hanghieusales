@@ -49,12 +49,12 @@ Theme Script
 */
 function hanghieu_enque_script()
 {
-	if(!is_admin())
+    if(!is_admin())
     {
-       // wp_enqueue_script('_vinateam-jquery',get_template_directory_uri().'/js/jquery-2.1.3.min.js',array(),'2.1.3',true);
+        // wp_enqueue_script('_vinateam-jquery',get_template_directory_uri().'/js/jquery-2.1.3.min.js',array(),'2.1.3',true);
     }
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-    wp_enqueue_script( 'comment-reply' );
+        wp_enqueue_script( 'comment-reply' );
     }
     wp_enqueue_style('owl-carousel-css',get_template_directory_uri().'/dist/owl-carousel/owl.carousel.css',array(),false);
     wp_enqueue_style('owl-carousel-css-transition',get_template_directory_uri().'/dist/owl-carousel/owl.transitions.css',array(),false);
@@ -62,12 +62,19 @@ function hanghieu_enque_script()
     // Register Styles
     wp_enqueue_style('hanghieu-boostrap-style',get_template_directory_uri().'/dist/bs3/css/bootstrap.min.css',array(),false);
     wp_enqueue_style('hanghieu-font-awesome-icon',get_template_directory_uri().'/dist/font-awesome/css/font-awesome.min.css',array(),false);
-    wp_enqueue_style('hanghieu-style',get_template_directory_uri().'/css/style.css',array(),false);
+    wp_enqueue_style('swiper-css',get_template_directory_uri().'/dist/swiper/swiper.min.css',array(),false);
+    wp_enqueue_style('hanghieu-style-old',get_template_directory_uri().'/css/style.css',array(),false);
+    wp_enqueue_style('hanghieu-style',get_template_directory_uri().'/css/main.css',array(),false);
+    wp_enqueue_style('hanghieu-style-2',get_template_directory_uri().'/css/product.css',array(),false);
     wp_enqueue_style('hanghieu-style-customs',get_template_directory_uri().'/style.css',array(),false);
     // Register Script
     wp_enqueue_script('bx-slider',get_template_directory_uri().'/js/jquery.bxslider.min.js',array('jquery'),false,true);
     wp_enqueue_script('owl-carousel-js',get_template_directory_uri().'/dist/owl-carousel/owl.carousel.min.js',array('jquery'),'2.0',true);
-    wp_register_script('hanghieu_script',get_template_directory_uri().'/js/hanghieu.js',array('jquery'),'2.0',true);
+    wp_enqueue_script('hanghieu_bootstrap_script',get_template_directory_uri().'/js/bootstrap.min.js',array('jquery'),'2.0',true);
+    wp_enqueue_script('hanghieu_jquery-ui_script',get_template_directory_uri().'/js/jquery-ui.min.js',array('jquery'),false,true);
+    wp_enqueue_script('hanghieu_swiper_script',get_template_directory_uri().'/js/swiper.jquery.min.js',array('jquery'),false,true);
+    wp_enqueue_script('hanghieu_script',get_template_directory_uri().'/js/hanghieu.js',array('jquery'),'2.0',true);
+    wp_enqueue_script('hanghieu_main_script',get_template_directory_uri().'/js/main.js',array('jquery'),false,true);
     wp_localize_script('hanghieu_script','hanghieu_script',array('hanghieu_ajax_url' => admin_url( 'admin-ajax.php' )));
     wp_enqueue_script('hanghieu_script');
 }
@@ -159,3 +166,23 @@ function social_share()
     </div>
     <?php
 }
+
+function product_percent_2()
+{
+	$price = get_post_meta( get_the_ID(), '_regular_price', true);
+	$sale = get_post_meta( get_the_ID(), '_sale_price', true);
+	if(!empty($sale)){
+		$percent = $sale/$price;
+		$percent = $percent*100;
+		$percent = 100 - $percent;
+	}
+	// Hàng mới hay không
+	$new = get_field_object('new',get_the_ID());
+	$new = $new['value'];
+	$new = intval($new);
+	if($new == 1){
+		echo '';
+	}
+	echo '<span class="percent-sale">-'.round($percent,0).'%</span>';
+}
+add_action('woocommerce_before_shop_loop_item_title','product_percent');

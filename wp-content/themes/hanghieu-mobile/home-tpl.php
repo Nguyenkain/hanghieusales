@@ -35,6 +35,8 @@ get_header();
 								wp_nav_menu( $home_args_menu );
 							?>
 					</div>
+
+
 					<div class="col-md-6" id="main-slider">
 						<ul id="top-slider">
 <?php
@@ -108,6 +110,82 @@ get_header();
 					?>
 				</div>
 				<!-- /.row row-no-padding -->
+
+				<div class="row slide">
+					<div class="slides">
+						<div class="slide-wrapper swiper-wrapper">
+							<?php
+							/**
+							GET SẢN PHẨM NỔI BẬT ĐỂ LÀM SLIDER CREATE MẠNH QUYỀN 16/06/2015
+							 */
+							$args = array(
+								'post_type' => 'product',
+								'meta_key' => '_featured',
+								'meta_value' => 'yes',
+								'posts_per_page' => 7
+							);
+							$featured_query = new WP_Query( $args );
+							if ($featured_query->have_posts()) :
+								while ($featured_query->have_posts()) :
+									$featured_query->the_post();
+									?>
+									<div class="swiper-slide">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+											<?php the_post_thumbnail(array(560,333,'bfi_thumb'=>true),array('class'=>'img-responsive')); ?>
+										</a>
+									</div>
+								<?php
+								endwhile;
+							endif;
+							wp_reset_query();
+							?>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<!--end slide-->
+
+					<?php
+					$args2 = array(
+						'post_type' => 'product',
+						'meta_key' => '_featured',
+						'meta_value' => 'yes',
+						'posts_per_page' => 3,
+						'offset'=>5
+					);
+					$featured_query2 = new WP_Query( $args2 );
+					if ($featured_query2->have_posts()) :
+						echo '<div class="row top-product-list">';
+						while ($featured_query2->have_posts()) :
+							$featured_query2->the_post();
+							?>
+							<div class="col-xs-4 top-product-item">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+									<?php product_percent_2() ?>
+									<?php
+									$price = get_post_meta( get_the_ID(), '_regular_price', true);
+									$sale = get_post_meta( get_the_ID(), '_sale_price', true);
+									if($sale)
+									{
+										$price_html = '<span class="price-info"><b>'.number_format($sale,0,'.','.').' VNĐ</b><br/><span class="old-price">'.number_format($price,0,'.','.').' VNĐ</span></span>';
+									}
+									else
+									{
+										$price_html = '<span class="price-info"><b>'.number_format($price,0,'.','.').' VNĐ</b></span>';
+									}
+									?>
+									<?php echo $price_html; ?>
+									<?php the_post_thumbnail(array(260,165),array('class'=>'img-responsive')); ?>
+								</a>
+							</div>
+						<?php
+						endwhile;
+						echo '</div>';
+					endif;
+					wp_reset_query();
+					?>
+				<!--end product top-->
 			</div>
 			<!-- /.contaner -->
 		</div>
@@ -233,7 +311,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-        <?php get_template_part('aside','footer'); ?>
+			<?php //get_template_part('aside','footer'); ?>
 	</article>
 <?php
 get_footer();
