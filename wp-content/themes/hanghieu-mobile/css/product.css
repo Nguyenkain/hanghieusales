@@ -85,7 +85,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
-    white-space: nowrap;
 }
 
 .recent-view .recent-list-slide .swiper-slide .item-info:before {

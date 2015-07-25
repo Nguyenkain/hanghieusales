@@ -170,9 +170,10 @@ function rc_woocommerce_recently_viewed_products() {
             $r->the_post();
             global $product;
             ?>
-	        <div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
+	        <div class="swiper-slide col-xs-4 col-sm-6 col-md-4">
 		        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-			        <?php the_post_thumbnail(array(138,74),array('class'=> 'item-image')); ?>
+			        <img class="item-image" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );?>">
+<!--			        --><?php //the_post_thumbnail(array(138,74),array('class'=> 'item-image')); ?>
 
 			        <div class="item-info"><?php the_title(); ?></div>
 		        </a>
