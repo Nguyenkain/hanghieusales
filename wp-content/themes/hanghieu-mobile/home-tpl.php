@@ -85,7 +85,7 @@ get_header();
 			</div>
 			<!-- /.contaner -->
 		</div>
-
+		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('homepage-widgets')) : else : echo __('Vui lòng thêm Extension cho homePage','hanghieu'); endif; ?>
         <section class="section blog">
 			<div class="container">
 				<div class="row new">

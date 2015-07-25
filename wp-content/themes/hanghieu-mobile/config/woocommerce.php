@@ -163,40 +163,22 @@ function rc_woocommerce_recently_viewed_products() {
     if ( $r->have_posts() ) {
         if($r->found_posts() > 5) {
           ?>
-          <script type="text/javascript">
-            $(document).ready(function(){
-                $('.last-view-items').bxSlider({
-                controls:true,
-                auto:false,
-                pager:false,
-                minSlides:5,
-                maxSlides:15,
-                slideMargin: 0,
-                slideWidth:184,
-                nextText:'<i class="fa fa-caret-right"></i>',
-                prevText:'<i class="fa fa-caret-left"></i>',
-                nextSelector:'.controls-view',
-                prevSelector:'.controls-view'
-              });
-            });
-          </script>
           <?php
         }
-        echo '<ul class="last-view-items clearfix">';
         // Start the loop
         while ( $r->have_posts()) {
             $r->the_post();
             global $product;
             ?>
-            <li class="clearfix">
-              <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail(array(111,73)); ?>
-                <p class="title"><?php the_title(); ?></p>
-              </a>
-            </li>
+	        <div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
+		        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
+			        <?php the_post_thumbnail(array(138,74),array('class'=> 'item-image')); ?>
+
+			        <div class="item-info"><?php the_title(); ?></div>
+		        </a>
+	        </div>
             <?php
         }
-        echo '</ul>';
     }
 }
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
