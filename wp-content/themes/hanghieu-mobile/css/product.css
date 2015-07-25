@@ -315,10 +315,15 @@ NEWS PAGE
 }
 
 .brands .brand-item {
-    border: 1px solid #d9d9d9;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-right: 3%;
+    margin-bottom: 30px;
+}
+.brands .brand-item:first-child {
+    max-height: 99px;
+}
+.brands .brand-item img{
+    border: 1px solid #d9d9d9;
 }
 
 .brands .row div:last-child.brand-item {
