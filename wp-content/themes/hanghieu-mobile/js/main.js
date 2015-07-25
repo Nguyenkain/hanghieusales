@@ -1,29 +1,29 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $( "#menu-content" ).hide();
+    $("#menu-content").hide();
 
 
-    $("#menu" ).click(function() {
+    $("#menu").click(function () {
 
         // Set the effect type
         var effect = 'slide';
 
         // Set the options for the effect type chosen
-        var options = { direction: 'up' };
+        var options = {direction: 'up'};
 
         // Set the duration (default: 400 milliseconds)
         var duration = 700;
 
-        $( "#menu-content" ).toggle(effect, options, duration);
+        $("#menu-content").toggle(effect, options, duration);
 
         //$( "#menu-content" ).toggle( "ease" );
     });
 
     var logo = document.getElementById("logo").offsetHeight;
     var item = document.getElementById("item").offsetHeight;
-    if(logo >= item){
+    if (logo >= item) {
         max = logo;
-    }else{
+    } else {
         max = item;
     }
 
@@ -39,11 +39,11 @@ $(document).ready(function(){
 
     var swiper2 = new Swiper('.slides-2', {
         autoplay: 5000,
-        slidesPerView : 3,
-        spaceBetween : 20,
+        slidesPerView: 3,
+        spaceBetween: 20,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        loop : true,
+        loop: true,
         autoplayDisableOnInteraction: false
     });
 
@@ -52,6 +52,12 @@ $(document).ready(function(){
         nextButton: '.nav-control.nav-next',
         prevButton: '.nav-control.nav-prev',
         freeMode: true
+    });
+
+    //Set value for category of search
+    $("#search-form .search-cate-list li a").click(function () {
+        var selectValue = $(this).data('value');
+        $('#search-form #search-cate').val(selectValue);
     });
 
 });
