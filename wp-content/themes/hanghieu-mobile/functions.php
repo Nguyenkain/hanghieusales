@@ -60,9 +60,9 @@ function hanghieu_enque_script()
     wp_enqueue_style('owl-carousel-css-transition',get_template_directory_uri().'/dist/owl-carousel/owl.transitions.css',array(),false);
     wp_enqueue_style('owl-carousel-css-theme',get_template_directory_uri().'/dist/owl-carousel/owl.theme.css',array(),false);
     // Register Styles
+	wp_enqueue_style('swiper-css',get_template_directory_uri().'/dist/swiper/swiper.min.css',array(),false);
     wp_enqueue_style('hanghieu-boostrap-style',get_template_directory_uri().'/dist/bs3/css/bootstrap.min.css',array(),false);
     wp_enqueue_style('hanghieu-font-awesome-icon',get_template_directory_uri().'/dist/font-awesome/css/font-awesome.min.css',array(),false);
-    wp_enqueue_style('swiper-css',get_template_directory_uri().'/dist/swiper/swiper.min.css',array(),false);
     wp_enqueue_style('hanghieu-style-old',get_template_directory_uri().'/css/style.css',array(),false);
     wp_enqueue_style('hanghieu-style',get_template_directory_uri().'/css/main.css',array(),false);
     wp_enqueue_style('hanghieu-style-2',get_template_directory_uri().'/css/product.css',array(),false);

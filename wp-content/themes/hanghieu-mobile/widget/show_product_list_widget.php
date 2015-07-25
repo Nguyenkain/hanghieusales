@@ -17,93 +17,73 @@ class Show_Product_By_Parent_Cat extends WP_Widget {
             ?>
             <section class="section section-product">
                 <div class="container">
-                    <div class="row row-no-padding">
-                        <div class="heading-section clearfix">
-                            <?php if(!empty($title)) { echo $before_title.'<span class="'.$icon_class.'"></span>'.$title.$after_title; } ?>
-                            <?php
-                            //echo $cat;
-                            $args_product_cat = array(
-                                'type'                     => 'product',
-                                'child_of'                 => 1,
-                                'parent'                   => $cat,
-                                'orderby'                  => 'name',
-                                'order'                    => 'ASC',
-                                'hide_empty'               => 1,
-                                'hierarchical'             => 1,
-                                'exclude'                  => '',
-                                'include'                  => '',
-                                'number'                   => '',
-                                'taxonomy'                 => 'product_cat',
-                                'pad_counts'               => false
-                            );
-                            $product_list_cat = get_categories($args_product_cat);
-                           // print_r($product_list_cat);
-                            ?>
-                            <?php if(!empty($product_list_cat)) {
-                                ?>
-                                <ul class="menu-heading">
-                                    <?php foreach($product_list_cat as $product_list_cat) {
-                                        ?>
-                                        <li><a target="_blank" href="<?php echo get_term_link( $product_list_cat,'product_cat'); ?> " cat-term="<?php echo $product_list_cat->term_id; ?>"><?php echo $product_list_cat->name; ?></a></li>
-                                        <?php
-                                    } ?>
-                                </ul>
-                                <?php
-                            } ?>
-                        </div>
-                        <div class="content-section clearfix">
-                            <?php $product_widget_featured = new WP_Query(array(
-                                'post_type'=>'product',
-                                'showposts'=>4,
-                                'meta_key' => '_featured',
-                                'meta_value' => 'yes',
-                                'tax_query'=>array(
-                                        array(
-                                                'taxonomy' => 'product_cat',
-                                                'field'    => 'term_id',
-                                                'terms'    =>$cat,
-                                            )
-                                    )
-                                ));
-                            ?>
-                        <?php  if($product_widget_featured->have_posts()): ?>
-                        <div class="col-md-7">
-                            <ul class="items-slider">
-                                <?php while($product_widget_featured->have_posts()):$product_widget_featured->the_post(); ?>
-                                <li>
-                                    <div class="items-big">
-                                        <div class="thumb">
-                                            <?php the_post_thumbnail(array(463,488),array('class'=>'img-responsive')); ?>
-                                        </div>
-                                        <div class="info">
-                                            <h3 class="title-product">
-                                                <?php big_title(get_the_title()); ?>
-                                            </h3>
-                                            <?php
-                                            $price = get_post_meta( get_the_ID(), '_regular_price', true);
-                                            $sale = get_post_meta( get_the_ID(), '_sale_price', true);
-                                            if($sale)
-                                            {
-                                                $price_html = '<p class="price">'.number_format($sale,0,'.','.').' VNĐ</p>';
-                                                $price_html .='<p class="price-old">'.number_format($price,0,'.','.').' VNĐ</p>';
-                                            }
-                                            else
-                                            {
-                                                    $price_html = '<p class="price-block">'.$price.'</p>';
-                                            }
-                                            echo $price_html;
-                                        ?>
-                                            <a href="<?php the_permalink(); ?>" class="action btn btn-black btn-buy">Mua ngay</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.items-big -->
-                                </li>
-                            <?php endwhile; wp_reset_postdata(); ?>
-                            </ul>
-                            <div class="big-direction"></div>
-                            <!-- /.big-direction -->
-                        </div>
-                    <?php endif; ?>
+	                <div class="row category">
+		                <div class="col-xs-3 category-name">
+			                <img src="<?php echo get_template_directory_uri()?>/img/<?php echo (!empty($icon_class)) ? $icon_class : 'category-woman' ?>.png" class="img-responsive">
+			                <?php if(!empty($title)) { echo '<span>'.$title.'</span>'; } ?>
+		                </div>
+		                <div class="col-xs-9 type-list">
+			                <?php
+			                //echo $cat;
+			                $args_product_cat = array(
+				                'type'                     => 'product',
+				                'child_of'                 => 1,
+				                'parent'                   => $cat,
+				                'orderby'                  => 'name',
+				                'order'                    => 'ASC',
+				                'hide_empty'               => 1,
+				                'hierarchical'             => 1,
+				                'exclude'                  => '',
+				                'include'                  => '',
+				                'number'                   => '',
+				                'taxonomy'                 => 'product_cat',
+				                'pad_counts'               => false
+			                );
+			                $product_list_cats = get_categories($args_product_cat);
+			                // print_r($product_list_cat);
+			                ?>
+			                <?php if(!empty($product_list_cats)) {
+				                ?>
+				                <ul class="type-list-ul">
+					                <?php foreach($product_list_cats as $i => $product_list_cat) {
+						                if($i > 3){
+							                break;
+						                } else {
+							                ?>
+							                <li class="type-list-item"><a href="<?php echo get_term_link( $product_list_cat, 'product_cat' ); ?> " cat-term="<?php echo $product_list_cat->term_id; ?>"><?php echo $product_list_cat->name; ?></a>
+							                </li>
+						                <?php
+						                }
+					                }
+					                ?>
+					                <?php if(count($product_list_cats) > 4) { ?>
+						                <li class="type-list-item more">
+							                <button type="button" class="btn dropdown-toggle more-btn"
+							                        data-toggle="dropdown"
+							                        aria-haspopup="true" aria-expanded="false">
+								                <span class="more-title">SẢN PHẨM KHÁC</span>
+								                <span class="caret"></span>
+								                <span class="sr-only">Toggle Dropdown</span>
+							                </button>
+							                <ul class="dropdown-menu">
+								                <?php foreach($product_list_cats as $i => $product_list_cat) {
+									                if($i > 3 ){?>
+										                <li><a href="<?php echo get_term_link( $product_list_cat, 'product_cat' ); ?> " cat-term="<?php echo $product_list_cat->term_id; ?>"><?php echo $product_list_cat->name; ?></a>
+										                </li>
+	                                            <?php
+									                }
+								                } ?>
+							                </ul>
+						                </li>
+					                <?php
+					                }
+					                ?>
+				                </ul>
+			                <?php
+			                } ?>
+		                </div>
+	                </div>
+
                     <?php $product_widget_cat = new WP_Query(array(
                                 'post_type'=>'product',
                                 'showposts'=>2,
@@ -117,59 +97,44 @@ class Show_Product_By_Parent_Cat extends WP_Widget {
                                 ));
                             ?>
                         <?php  if($product_widget_cat->have_posts()): ?>
-                        <div class="col-md-5">
-                            <?php while($product_widget_cat->have_posts()):$product_widget_cat->the_post(); ?>
-                            <div class="col-md-6">
-                                <div class="item-product-normal">
-                                    <div class="thumb">
-                                        <?php the_post_thumbnail(array(236,330,'bfi_thumb'=>true),array('class'=>'img-responsive')); ?>
-                                        <div class="icon-more">
-                                            <div class="icon icon-animate-left">
-                                                <a href="<?php the_permalink(); ?>"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="icon icon-animate-right">
-                                                <?php
-                                                $product = new WC_Product(get_the_ID());
-                                                echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-                                                sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="button %s product_type_%s">%s</a>',
-                                                    esc_url( $product->add_to_cart_url() ),
-                                                    esc_attr( $product->id ),
-                                                    esc_attr( $product->get_sku() ),
-                                                    esc_attr( isset( $quantity ) ? $quantity : 1 ),
-                                                    $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-                                                    esc_attr( $product->product_type ),
-                                                    '<i class="fa fa-shopping-cart"></i>'
-                                                ),
-                                            $product );
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <h4><?php hhs_brand(); ?></h4>
-                                        <p><?php the_title(); ?></p>
-                                         <?php
-                                            $price = get_post_meta( get_the_ID(), '_regular_price', true);
-                                            $sale = get_post_meta( get_the_ID(), '_sale_price', true);
-                                            if($sale)
-                                            {
-                                                $price_html ='<p class="price-old">'.number_format($price,0,'.','.').' VNĐ</p>';
-                                                $price_html .= '<p class="price">'.number_format($sale,0,'.','.').' VNĐ</p>';
-                                            }
-                                            else
-                                            {
-                                                    $price_html = '<p class="price-block">'.$price.'</p>';
-                                            }
-                                            echo $price_html;
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endwhile; wp_reset_postdata(); ?>
+                        <div class="row sample">
+	                        <?php while($product_widget_cat->have_posts()):$product_widget_cat->the_post(); ?>
+	                        <div class="col-xs-6 sample-item">
+		                        <div class="thumbnail">
+			                        <a href="<?php the_permalink(); ?>">
+				                        <?php product_percent_2() ?>
+				                        <span class="sale-title">SALE</span>
+				                        <span class="new-title">NEW</span>
+				                        <?php the_post_thumbnail(array(236,330,'bfi_thumb'=>true),array('class'=>'img-responsive')); ?>
+			                        </a>
+
+			                        <div class="caption clearfix">
+				                        <a href="<?php the_permalink(); ?>"><span class="caption-title"><?php hhs_brand(); ?></span></a>
+				                        <hr/>
+				                        <?php
+				                        $product = new WC_Product(get_the_ID());
+				                        ?>
+				                        <p class="caption-description"><?php echo get_the_title().$product->get_sku(); ?></p>
+
+				                        <div class="caption-price">
+					                        <?php
+					                        $price = get_post_meta( get_the_ID(), '_regular_price', true);
+					                        $sale = get_post_meta( get_the_ID(), '_sale_price', true);
+					                        ?>
+					                        <div class="price-info">
+						                        <?php echo '<p class="old-price">'.number_format($price,0,'.','.').' VNĐ</p>'?>
+						                        <?php echo '<p class="new-price">'.number_format($sale,0,'.','.').' VNĐ</p>'?>
+					                        </div>
+					                        <div class="cart">
+						                        <a href="<?php echo esc_url( $product->add_to_cart_url());?>"><img src="<?php echo get_template_directory_uri()?>/img/product-cart.png"></a>
+					                        </div>
+				                        </div>
+			                        </div>
+		                        </div>
+	                        </div>
+	                        <?php endwhile; wp_reset_postdata(); ?>
                         </div>
                         <?php endif; ?>
-                        </div>
-                        <!-- /.content-section -->
                     </div>
                     <!-- /.row row-no-padding -->
                 </div>
@@ -219,15 +184,6 @@ function form( $instance ) {
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
                 name="<?php echo $this->get_field_name('title'); ?>" type="text"
                 value="<?php echo  esc_attr($title);?>" />
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('slide_position'); ?>">
-                <?php _e('Slider Position:'); ?> </label>
-            <select name="<?php echo $this->get_field_name('slide_position'); ?>" id="<?php echo $this->get_field_id('slide_position'); ?>">
-                <option value="left" <?php if($slide_position == 'left') { echo 'selected="selected"'; } ?>> -- <?php _e('Trái','hanghieu'); ?> -- </option>
-                <option value="right" <?php if($slide_position == 'right') { echo 'selected="selected"'; } ?>> -- <?php _e('Phải','hanghieu'); ?> -- </option>
-                <option value="center" <?php if($slide_position == 'center') { echo 'selected="selected"'; } ?>> -- <?php _e('Chính giữa','hanghieu'); ?> -- </option>
-            </select>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('slide_active'); ?>">

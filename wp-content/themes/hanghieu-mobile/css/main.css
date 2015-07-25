@@ -278,6 +278,10 @@
     position: relative;
 }
 
+.row.category .type-list .type-list-ul .type-list-item.more ul li{
+    text-align: left;
+}
+
 .row.category .type-list .type-list-ul .type-list-item.more .dropdown-menu{
     right:0;
     left: auto;

@@ -2,71 +2,31 @@
 <div class="footer">
 <div class="guide">
 	<div class="container">
-
-		<div class="row recent-view">
-			<div class="col-xs-2 block-title">
-				Sản phẩm bạn vừa xem
-			</div>
-			<div class="col-xs-10">
-				<div class="row slide-products">
-					<div class="col-xs-1 nav-control nav-prev">
-						<i class="fa fa-caret-left"></i>
-					</div>
-					<div class="col-xs-10 slide-content">
-						<div class="recent-list-slide row">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
-									<img src="<?php echo get_template_directory_uri() ?>/img/item-recent.jpg" class="item-image">
-
-									<div class="item-info"> Giày da chuông cao cấp G117</div>
-								</div>
-								<div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
-									<img src="<?php echo get_template_directory_uri() ?>/img/item-recent.jpg" class="item-image">
-
-									<div class="item-info"> Giày da chuông cao cấp G117</div>
-								</div>
-								<div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
-									<img src="<?php echo get_template_directory_uri() ?>/img/item-recent.jpg" class="item-image">
-
-									<div class="item-info"> Giày da chuông cao cấp G117</div>
-								</div>
-								<div class="swiper-slide col-xs-12 col-sm-6 col-md-4">
-									<img src="<?php echo get_template_directory_uri() ?>/img/item-recent.jpg" class="item-image">
-
-									<div class="item-info"> Giày da chuông cao cấp G117</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-1 nav-control nav-next">
-						<i class="fa fa-caret-right"></i>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<?php if(! empty( $_COOKIE['woocommerce_recently_viewed'] ))
 		{
 			?>
-			<div class="section last-views">
-				<div class="container">
-					<div class="row row-no-padding" style="margin-left:-15px;margin-right:-15px;">
-						<div class="col-md-1">
-							<div class="hd-last">
-								Sản phẩm bạn vừa xem
+			<div class="row recent-view">
+				<div class="col-xs-2 block-title">
+					Sản phẩm bạn vừa xem
+				</div>
+				<div class="col-xs-10">
+					<div class="row slide-products">
+						<div class="col-xs-1 nav-control nav-prev">
+							<i class="fa fa-caret-left"></i>
+						</div>
+						<div class="col-xs-10 slide-content">
+							<div class="recent-list-slide row">
+								<div class="swiper-wrapper">
+									<?php rc_woocommerce_recently_viewed_products(); ?>
+								</div>
 							</div>
 						</div>
-						<div class="col-md-11">
-							<?php rc_woocommerce_recently_viewed_products(); ?>
-							<div class="controls-view">
-
-							</div>
-							<!-- /.controls-view -->
+						<div class="col-xs-1 nav-control nav-next">
+							<i class="fa fa-caret-right"></i>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- /.section last-views -->
 		<?php
 		}
 		?>
