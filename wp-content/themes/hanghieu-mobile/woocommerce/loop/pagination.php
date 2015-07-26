@@ -35,13 +35,14 @@ if ( $wp_query->max_num_pages <= 1 ) {
 	?>
 </nav>
 </noscript>
-<nav class="load-ajax hide"></nav>
+<div class="row see-more text-center hide">
+</div>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('.load-ajax').removeClass('hide');
-		$('.load-ajax').html('<a href="javascript://" title="Xem thêm sản phẩm">Xem thêm</a>');
-		$('.load-ajax a').click(function(){
-			$('.load-ajax a').html('<i class="fa fa-spinner fa-pulse"></i> Đang tải dữ liệu</span>');
+		$('.see-more').removeClass('hide');
+		$('.see-more').html('<a class="btn btn btn-default btn-lg btn-more" href="javascript://" title="Xem thêm sản phẩm">Xem thêm</a>');
+		$('.see-more a').click(function(){
+			$('.see-more a').html('<i class="fa fa-spinner fa-pulse"></i> Đang tải dữ liệu</span>');
 			var offset = get_offset();
 			$.post(mq_register_ajax.mq_ajax_url,{
 				action:"load_more_product",
@@ -49,21 +50,21 @@ if ( $wp_query->max_num_pages <= 1 ) {
 				per_page:12,
 				category_id:<?php echo get_queried_object()->term_id; ?>
 			}).done(function(response){
-				$('.load-ajax a').html('Xem thêm');
+				$('.see-more a').html('Xem thêm');
 				if(response == '')
 				{
-					$('.load-ajax').html('<span>Sản phẩm đã hết!</span>');
+					$('.see-more').html('<span>Sản phẩm đã hết!</span>');
 				}
 				else
 				{
-					$('.main-grid').append(response);
+					$('.row.sample').append(response);
 				}
 			});
 		});
 		function get_offset()
 		{
 			var count = 0;
-			$('.items-category').each(function(){
+			$('.row.sample .sample-item').each(function(){
 					count++;
 			});
 			return count;
@@ -71,25 +72,9 @@ if ( $wp_query->max_num_pages <= 1 ) {
 	});
 </script>
 <style type="text/css">
-	.load-ajax
-	{
-		display: block;
-		width: 250px;
-		border:1px solid #e74c3c;
-		padding:10px 15px;
-		text-align: center;
-		text-transform: uppercase;
-		color:#e74c3c;
-		margin:0 auto;
-	}
-	.load-ajax a
-	{
-		color:#e74c3c;
-		display: block;
-	}
 	.loading
 	{
 		text-transform: capitalize;
-		font-weight: 12px;
+		font-size: 12px;
 	}
 </style>

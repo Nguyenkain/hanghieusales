@@ -998,7 +998,7 @@
     }
     .row.sample .sample-item .thumbnail .sale-title ,.new-title{
         font-size: 10px;
-        width: 30px;
+        width: 20%;
     }
     .row.sample .sample-item .thumbnail .percent-sale {
         font-size: 10px;

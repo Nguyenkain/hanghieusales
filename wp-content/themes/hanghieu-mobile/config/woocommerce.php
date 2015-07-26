@@ -23,6 +23,7 @@ add_action('woocommerce_after_mini_cart','hhs_after_minicart');
 add_action('woocommerce_before_mini_cart','hhs_before_minicart');
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
 function custom_woo_thumb()
 {
 global $product;
@@ -52,7 +53,18 @@ global $product;
    </div>
    <?php
 }
-add_action('woocommerce_before_shop_loop_item_title','custom_woo_thumb',12);
+//add_action('woocommerce_before_shop_loop_item_title','custom_woo_thumb',12);
+
+/**
+* Add image for product
+ */
+function custom_product_thumb()
+{
+    global $product;
+    echo woocommerce_get_product_thumbnail();
+}
+add_action('woocommerce_before_shop_loop_item','custom_product_thumb',12);
+
 function cs_wc_loop_add_to_cart_scripts() {
     if ( is_shop() || is_product_category() || is_product_tag() || is_product() ) : ?>
 <script>
@@ -78,7 +90,7 @@ function hhs_brand()
   $pa_brand = get_the_terms( $product->id, 'pa_brand');
 
       foreach ( $pa_brand as $pa_brand ) {
-      	echo '<a class="hhs_brand" href="'.get_term_link( $pa_brand->term_id,'pa_brand').'" title="'.$pa_brand->name.'">'.$pa_brand->name.'</a>';
+      	echo '<a class="hhs_brand" href="'.get_term_link( $pa_brand->term_id,'pa_brand').'" title="'.$pa_brand->name.'"><span class="caption-title">'.$pa_brand->name.'</span></a>';
         }
 }
 // Custom woocommerce_before_shop_loop
@@ -147,16 +159,16 @@ function rc_woocommerce_recently_viewed_products() {
     $viewed_products = ! empty( $_COOKIE['woocommerce_recently_viewed'] ) ? (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] ) : array();
     $viewed_products = array_filter( array_map( 'absint', $viewed_products ) );
    if ( empty( $viewed_products ) )
-        return '';
+        {return '';}
     if( !isset( $per_page ) ? $number = 5 : $number = $per_page )
-    $query_args = array(
+    {$query_args = array(
                     'posts_per_page' => $number,
                     'no_found_rows'  => 1,
                     'post_status'    => 'publish',
                     'post_type'      => 'product',
                     'post__in'       => $viewed_products,
                     'orderby'        => 'rand'
-                    );
+                    );}
     $query_args['meta_query'] = array();
     $query_args['meta_query'][] = $woocommerce->query->stock_status_meta_query();
     $r = new WP_Query($query_args);
@@ -534,3 +546,17 @@ function ajax_add_all_cart()
 }
 add_action('wp_ajax_nopriv_ajax_add_all_cart','ajax_add_all_cart');
 add_action('wp_ajax_ajax_add_all_cart','ajax_add_all_cart');
+
+
+/*Hook product again*/
+remove_action('woocommerce_before_shop_loop_item_title','product_percent');
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+add_action( 'woocommerce_after_shop_loop_item_title', 'product_percent_2' );
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 5 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 10 );
