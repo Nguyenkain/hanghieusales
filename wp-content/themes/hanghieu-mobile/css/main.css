@@ -427,6 +427,7 @@
 
 .row.sample .sample-item .thumbnail .caption .caption-description{
     font-size: 12px;
+    height: 30px;
 }
 
 .row.sample .sample-item .thumbnail .caption  hr {
