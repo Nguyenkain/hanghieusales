@@ -7,4 +7,4 @@
  * @version     2.0.0
  */
 ?>
-<article class="main-grid row">
+<article class="main-grid row sample">

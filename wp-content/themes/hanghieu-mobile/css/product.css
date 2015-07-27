@@ -130,6 +130,14 @@ PRODUCT DETAIL
     text-align: center;
 }
 
+.product-main-image-container * {
+    text-align: center;
+}
+
+.product-main-image-container img {
+    margin: 0 auto;
+}
+
 .product-loader {
     position: absolute;
     top: 4px;

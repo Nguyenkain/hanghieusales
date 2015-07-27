@@ -134,18 +134,23 @@ function hhs_wrap_single_end()
 {
   echo '</article>';
 }
+/**
+* HTML before single
+ */
 function hss_html_before_single()
 {
   ?>
-  <div class="details-section">
+  <div class="content">
       <div class="container">
-        <div class="row">
   <?php
 }
+
+/**
+* HTML after single
+ */
 function hss_html_after_single()
 {
   ?>
-  </div>
 </div>
 </div>
   <?php
