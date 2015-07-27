@@ -38,6 +38,6 @@ get_header(); ?>
 		 */
 		//do_action( 'woocommerce_sidebar' );
 	?>
-	<?php get_template_part('aside','footer'); ?>
+	<?php //get_template_part('aside','footer'); ?>
 
 <?php get_footer(); ?>
