@@ -427,6 +427,7 @@
 
 .row.sample .sample-item .thumbnail .caption .caption-description{
     font-size: 12px;
+    height: 30px;
 }
 
 .row.sample .sample-item .thumbnail .caption  hr {
@@ -1002,7 +1003,7 @@
     }
     .row.sample .sample-item .thumbnail .sale-title ,.new-title{
         font-size: 10px;
-        width: 30px;
+        width: 20%;
     }
     .row.sample .sample-item .thumbnail .percent-sale {
         font-size: 10px;
@@ -1127,6 +1128,7 @@
     }
     .row.sample .sample-item .thumbnail .caption .caption-price .price-info .new-price {
         font-size: 24px;
+        white-space: nowrap;
     }
     .row.sample .sample-item .thumbnail .caption .caption-price .price-info .old-price {
         font-size: 16px;

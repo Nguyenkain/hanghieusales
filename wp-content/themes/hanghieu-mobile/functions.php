@@ -181,8 +181,21 @@ function product_percent_2()
 	$new = $new['value'];
 	$new = intval($new);
 	if($new == 1){
-		echo '';
+		echo '<span class="new-title">NEW</span>';
 	}
 	echo '<span class="percent-sale">-'.round($percent,0).'%</span>';
 }
 add_action('woocommerce_before_shop_loop_item_title','product_percent');
+
+
+/*Hook product again*/
+remove_action('woocommerce_before_shop_loop_item_title','product_percent');
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+/*add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 5 );
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );*/
