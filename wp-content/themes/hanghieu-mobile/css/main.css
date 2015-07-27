@@ -1124,6 +1124,7 @@
     }
     .row.sample .sample-item .thumbnail .caption .caption-price .price-info .new-price {
         font-size: 24px;
+        white-space: nowrap;
     }
     .row.sample .sample-item .thumbnail .caption .caption-price .price-info .old-price {
         font-size: 16px;
