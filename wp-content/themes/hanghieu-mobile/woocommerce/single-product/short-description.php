@@ -18,6 +18,6 @@ if ( ! $post->post_excerpt ) {
 }
 
 ?>
-<div itemprop="description">
+<div itemprop="description" class="col-xs-12">
 	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 </div>

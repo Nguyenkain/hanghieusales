@@ -33,7 +33,7 @@ $args = apply_filters( 'woocommerce_related_products_args', array(
 
 $products = new WP_Query( $args );
 
-$woocommerce_loop['columns'] = $columns;
+	$woocommerce_loop['columns'] = $columns;
 
 if ( $products->have_posts() ) : ?>
 
@@ -71,7 +71,7 @@ if ( $loop->have_posts() ) {
 		<div class="heading-section clearfix">
 			<h2 class="title-section">Sản phẩm bán chạy</h2>
 		</div>
-<div class="row">
+<div class="row sample">
 <?php
 echo '<div class="item-carousel" id="item-carousel">';
 while ( $loop->have_posts() ) : $loop->the_post();
