@@ -445,6 +445,10 @@
     padding-left: 10px;
 }
 
+.row.tags .tag-list a{
+    margin:  0 5px;
+}
+
 .row.tags{
     display: table;
     padding-top: 15px;

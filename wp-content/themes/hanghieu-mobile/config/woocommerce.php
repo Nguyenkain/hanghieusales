@@ -81,6 +81,16 @@ function hhs_brand()
       	echo '<a class="hhs_brand" href="'.get_term_link( $pa_brand->term_id,'pa_brand').'" title="'.$pa_brand->name.'">'.$pa_brand->name.'</a>';
         }
 }
+
+function hhs_brand_2()
+{
+	global $product;
+	$pa_brand = get_the_terms( $product->id, 'pa_brand');
+
+	foreach ( $pa_brand as $pa_brand ) {
+		echo $pa_brand->name;
+	}
+}
 // Custom woocommerce_before_shop_loop
 remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
 remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
