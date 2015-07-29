@@ -113,7 +113,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 		</tbody>
 		</table>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-sm-6">
 				<div class="coupon">
 
 					<?php if ( WC()->cart->coupons_enabled() ) { ?>
@@ -127,7 +127,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php } ?>
 			</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-sm-6">
 				<div class="cart-total clearfix">
 			    <p>tổng đơn hàng: <?php echo WC()->cart->get_cart_total(); ?></p>
 			  </div>

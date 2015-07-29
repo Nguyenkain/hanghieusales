@@ -1807,37 +1807,31 @@ body
 }
 .form .list-product li .thumb-cart
 {
-    float:left;
-    width:58px;
-    height:58px;
-    border:1px solid #bcbcbc;
-    background:#cdcdcd;
+    text-align: center;
 }
 .form .list-product li
 {
     margin-bottom:15px;
+    border: 1px solid #bcbcbc;
 }
 .form .list-product li .thumb-cart img
 {
-    width:100%;
-    height:100%;
+    /*width:100%;*/
+    /*height:100%;*/
 }
 .form .list-product li .info-cart
 {
-    width:338px;
+    text-align: center;
     float:left;
-    margin-left:10px;
 }
 .form .list-product li .info-cart h6
 {
     font-size:14px;
     text-transform:uppercase;
-    width:160px;
     float:left;
     margin:0;
     padding:0;
     color:#6d6d6d;
-    border-right:1px solid #e5e5e5;
 }
 .form .list-product li .info-cart h6 span
 {
@@ -1846,13 +1840,14 @@ body
     font-weight:bold;
     font-size:12px;
     text-transform:none;
+    margin-top: 5px;
 }
 .form .list-product li .info-cart p
 {
     font-size:18px;
     color:#242424;
     margin-bottom:0;
-    text-align:right;
+    text-align:center;
     line-height: 40px;
 }
 .total-don
