@@ -22,22 +22,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 					<li class="items clearfix <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 						<a href="javascript://">
-							<div class="thumb-cart">
+							<div class="thumb-cart col-sm-3">
 								<?php
 								echo $thumbnail     = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 								?>
 							</div>
-							<div class="info-cart">
+							<div class="info-cart col-sm-9">
+								<div class="col-xs-12 col-sm-6">
 								<h6>
 									<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;'; ?>
 									<span>
 										<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
 									</span>
 								</h6>
+								</div>
+								<div class="col-xs-12 col-sm-6">
 								<p>
 									<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 									<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
 								</p>
+								</div>
 							</div>
 						</a>
 					</li>

@@ -25,12 +25,12 @@
  //Added by WP-Cache Manager
 
 //define( 'WPCACHEHOME', '/home/hangh971/domains/hanghieusales.com/public_html/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define('DB_NAME', 'hanghieu2');
+define('DB_NAME', 'hanghieu');
 /** MySQL database username */
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '123123123');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
