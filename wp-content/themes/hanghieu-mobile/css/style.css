@@ -1381,6 +1381,7 @@ body
     background: #fff;
     border-radius: 0;
     margin: 0 0 38px;
+    width: 100%;
 }
 .shop_table tbody tr
 {
@@ -1418,6 +1419,16 @@ body
     vertical-align: middle;
     white-space: nowrap;
 }
+
+/*Custom CSS*/
+.shop_table td.product-quantity .quantity input {
+    width: 42px;
+    text-align: center;
+    margin: 0;
+    padding: 6px 4px;
+}
+
+
 .shop_table th.product-remove {
     border-left: none;
 }
@@ -1574,6 +1585,9 @@ body
     margin-top:15px;
     font-size:14px;
 }
+.coupon.row {
+    text-align: center;
+}
 .coupon span
 {
     font-size:16px;
@@ -1583,7 +1597,6 @@ body
 }
 #coupon_code
 {
-    width:158px;
     padding:4px 10px;
 }
 .coupon .button
@@ -1630,9 +1643,10 @@ body
     background:#242424;
     text-transform:uppercase;
     height:32px;
-    line-height:32px;
+    line-height: 21px;
     text-align:center;
-    margin-left:10px;
+    /*margin-left:10px;*/
+    margin-bottom: 15px;
 }
 .buttons-cart .button:hover,.continue:hover
 {
@@ -1640,7 +1654,7 @@ body
 }
 .continue
 {
-    padding:7px;
+    padding:7px 0;
 }
 .buttons-cart .button:hover
 {
@@ -1653,10 +1667,10 @@ body
     background:#e74c3c;
     text-transform:uppercase;
     height:32px;
-    line-height:32px;
+    line-height: 21px;
     text-align:center;
-    margin-left:10px;
-    padding:7px;
+    /*margin-left:10px;*/
+    padding:7px 0;
 }
 .check-out-btn:hover
 {

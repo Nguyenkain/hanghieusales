@@ -11,24 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 if ( $order ) : ?>
-<div class="check-out-step clearfix">
-      <div class="step-1 active step">
-        <i class="fa fa-check"></i>
-        <p>Giỏ hàng</p>
-      </div>
-      <div class="step-2 active step">
-        <span>2</span>
-        <p>Đăng nhập/Đăng ký</p>
-      </div>
-      <div class="step-3 active step">
-        <span>3</span>
-        <p>Thông tin & Thanh toán</p>
-      </div>
-      <div class="step-4 active step">
-        <span>4</span>
-        <p>Xác nhận thành công</p>
-      </div>
-    </div>
     <!-- /.check-out-step -->
 	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
