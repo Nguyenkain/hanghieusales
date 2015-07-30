@@ -23,11 +23,11 @@ wc_print_notices();
 			<table class="shop_table cart" cellspacing="0">
 				<thead>
 				<tr>
-					<th class="product-name" style="width: 50%"><?php _e( 'Product', 'woocommerce' ); ?></th>
+					<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 					<!--<th class="product-price"><?php /*_e( 'Price', 'woocommerce' ); */ ?></th>-->
-					<th class="product-quantity" style="width: 10%"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
-					<th class="product-subtotal" style="width: 30%"><?php _e( 'Total', 'woocommerce' ); ?></th>
-					<th class="product-remove" style="width: 10%">&nbsp;</th>
+					<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
+					<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
+					<th class="product-remove">&nbsp;</th>
 				</tr>
 				</thead>
 				<tbody>

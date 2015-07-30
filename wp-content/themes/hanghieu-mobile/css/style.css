@@ -1403,7 +1403,7 @@ body
     color: #000;
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -1413,11 +1413,11 @@ body
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 600;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 /*Custom CSS*/
@@ -1484,7 +1484,7 @@ body
     font-size: 15px;
 }
 .shop_table td.product-name {
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     text-align: center;
 }
 .shop_table td.product-name a {
